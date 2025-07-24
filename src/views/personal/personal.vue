@@ -20,7 +20,6 @@
             <div class="function-content">
                 <div class="plus-row">
                     <div class="vip">PLUS会员</div>
-                    <div class="delimiter">|</div>
                     <div class="vip-content">已经为您优惠593元</div>
                     <button class="plus-btn">立即查看</button>
                 </div>
@@ -220,23 +219,35 @@ const otherFunctions = [
 }
 
 .vip {
+    position: relative;
+    padding-right: 18px;
     font-weight: bold;
     color: #21e5b5;
     margin-right: 8px;
     letter-spacing: 1px;
+    white-space: nowrap;   /* 严禁跳行*/
 }
 
-.delimiter {
-    color: #bbb;
-    font-size: 1.5rem;
-    margin-right: 12px;
+.vip::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 18px;
+    background: #bbb;
+    opacity: 1.7;
+    
 }
 
 .vip-content {
-    flex: 1;
+    flex: 1 1 0 ;
     color: #fff;
     font-weight: 500;
     font-size: 12px;
+    white-space: nowrap;   /* 严禁跳行*/
 }
 
 .plus-btn {
@@ -244,11 +255,12 @@ const otherFunctions = [
     color: #222;
     border: none;
     border-radius: 5px;
-    padding: 4px 18px;
+    padding: 2px 8px;
     font-weight: bold;
     box-shadow: 0 2px 4px #0001;
     cursor: pointer;
-    transition: background .2s;
+    transition: background 0.2s;
+    white-space: nowrap;   /* 严禁跳行*/
 }
 
 .plus-btn:hover {
