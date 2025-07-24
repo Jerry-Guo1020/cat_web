@@ -26,7 +26,7 @@ const cardStyle = computed(() => ({
 }))
 </script>
 
-<style>
+<style scoped>
 .card {
     width: clamp(240px, 35vw, 420px);
     height: 80px;
