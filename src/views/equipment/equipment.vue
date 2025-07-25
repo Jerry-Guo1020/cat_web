@@ -6,10 +6,8 @@
         <div class="tab active">我的设备</div>
         <div class="tab">共享设备</div>
       </div>
-
       <!-- 大标题 -->
       <div class="title">设备消息</div>
-
       <!-- 卡片内容 -->
       <div class="msg-card">
         <div v-for="(item, idx) in notion" :key="idx" class="msg-row">
@@ -18,18 +16,28 @@
           <div class="msg-message" :title="item.message">{{ item.message }}</div>
         </div>
       </div>
-
       <div class="title">全部设备</div>
       <div class="all-equipment">
-        <Card title="猫舍" status="充足" desc="猫砂余量" notion="今天已清理4次" />
-        <Card title="猫猫的饭碗" status="正常" desc="猫砂余量" notion="今天已清理4次" />
-        <Card title="猫猫的饮水机" status="充足" desc="猫砂余量" notion="今天已清理4次" />
-        <Card2 title="摄像头" status="已录像" time="14:00" notion="今日已经录像4次" 
-          :content="[
-          { time: '14:45', status: '已录像' },
-          { time: '14:45', status: '已录像' },
-          { time: '14:45', status: '已录像' }
-        ]" />
+        <Card
+          v-for="dev in devices"
+          :key="'dev-'+dev.id"
+          :title="dev.name"
+          :status="dev.status"
+          :desc="dev.desc"
+          :notion="dev.notion"
+          :icon="dev.icon"
+          @click="goDetail(dev.id, 'device')"
+        />
+        <Card2
+          v-for="cam in cameras"
+          :key="'cam-'+cam.id"
+          :title="cam.title"
+          :status="cam.status"
+          :time="cam.time"
+          :notion="cam.notion"
+          :content="cam.content"
+          @click="goDetail(cam.id, 'camera')"
+        />
       </div>
     </div>
     <Navbar />
@@ -37,10 +45,14 @@
 </template>
 
 <script setup>
-import Card from '../../components/equipment/card.vue';
-import Card2 from '../../components/equipment/card2.vue';
-import Navbar from '../../components/Navbar/Navbar.vue';
+import Card from '../../components/equipment/card.vue'
+import Card2 from '../../components/equipment/card2.vue'
+import Navbar from '../../components/Navbar/Navbar.vue'
+import { devices } from '/src/data/devices.js'
+import { cameras } from '/src/data/cameras.js'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const notion = [
   {
     time: "14:00",
@@ -52,12 +64,16 @@ const notion = [
     label: "猫咪的水盆",
     message: "喊猫咪去喝水哦."
   }
-];
+]
+
+function goDetail(id, type) {
+  router.push(`/device/${type}/${id}`)
+}
 </script>
 
 <style scoped>
 .container {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background: #f5fefe;
   display: flex;
@@ -65,6 +81,7 @@ const notion = [
   align-items: flex-start;
   padding-top: 0;
   padding-bottom: calc(100px + env(safe-area-inset-bottom, 24px));
+  overflow-x: hidden; 
 
 }
 
@@ -106,7 +123,7 @@ const notion = [
   right: 0;
   bottom: -7px;
   height: 7px;
-  width: 106%;
+  width: 100%;
   margin: 0 auto;
   border-radius: 7px;
   background: #26e0e2;
@@ -124,7 +141,7 @@ const notion = [
 /* 卡片内容 */
 .msg-card {
   background: #fff;
-  border-radius: 28px;
+  border-radius: 13px;
   box-shadow: 0 4px 24px #0001;
   width: 95%;
   max-width: 940px;
@@ -194,7 +211,6 @@ const notion = [
 /* 响应式适配 */
 @media (max-width: 600px) {
   .main-content {
-    width: 100vw;
     padding: 0 0 18px 0;
   }
 

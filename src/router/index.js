@@ -5,6 +5,7 @@ import Mall from "../views/mall/mall.vue";
 import Equipment from "../views/equipment/equipment.vue";
 import Personal from "../views/personal/personal.vue";
 import Message from "../views/message/message.vue";
+import DeviceDetail from '../components/equipment/DeviceDetail.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -39,7 +40,13 @@ const router = createRouter({
       component: Message,
       name: "message",
     },
+    { path: "/device/:type/:id", 
+      component: DeviceDetail 
+    },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    return{ top: 0}
+  }
 });
 
 export default router;
