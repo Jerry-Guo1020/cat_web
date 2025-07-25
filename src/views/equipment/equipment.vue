@@ -21,12 +21,15 @@
 
       <div class="title">全部设备</div>
       <div class="all-equipment">
-        <Card title="猫舍" status="充足" desc="猫砂余量" notion="今天已清理4次"/>
-        <Card title="猫猫的饭碗" status="正常" desc="猫砂余量" notion="今天已清理4次"/>
-        <Card title="猫猫的饮水机" status="充足" desc="猫砂余量" notion="今天已清理4次"/>
-        <Card title="猫舍" status="充足" desc="猫砂余量" notion="今天已清理4次"/>
-        <Card title="猫舍" status="充足" desc="猫砂余量" notion="今天已清理4次"/>
-        <Card title="猫舍" status="充足" desc="猫砂余量" notion="今天已清理4次"/> 
+        <Card title="猫舍" status="充足" desc="猫砂余量" notion="今天已清理4次" />
+        <Card title="猫猫的饭碗" status="正常" desc="猫砂余量" notion="今天已清理4次" />
+        <Card title="猫猫的饮水机" status="充足" desc="猫砂余量" notion="今天已清理4次" />
+        <Card2 title="摄像头" status="已录像" time="14:00" notion="今日已经录像4次" 
+          :content="[
+          { time: '14:45', status: '已录像' },
+          { time: '14:45', status: '已录像' },
+          { time: '14:45', status: '已录像' }
+        ]" />
       </div>
     </div>
     <Navbar />
@@ -35,6 +38,7 @@
 
 <script setup>
 import Card from '../../components/equipment/card.vue';
+import Card2 from '../../components/equipment/card2.vue';
 import Navbar from '../../components/Navbar/Navbar.vue';
 
 const notion = [
@@ -79,6 +83,7 @@ const notion = [
   margin-bottom: 36px;
   margin-left: 18px;
 }
+
 .tab {
   font-size: 2rem;
   font-weight: bold;
@@ -88,14 +93,18 @@ const notion = [
   padding-bottom: 4px;
   transition: color 0.15s;
 }
+
 .tab.active {
   color: #26e0e2;
 }
+
 .tab.active::after {
   content: '';
   display: block;
   position: absolute;
-  left: 0; right: 0; bottom: -7px;
+  left: 0;
+  right: 0;
+  bottom: -7px;
   height: 7px;
   width: 106%;
   margin: 0 auto;
@@ -108,7 +117,7 @@ const notion = [
   font-size: 2.3rem;
   font-weight: bold;
   color: #111;
-  margin: 30px  0 35px 16px;
+  margin: 30px 0 35px 16px;
   letter-spacing: 1px;
 }
 
@@ -135,6 +144,7 @@ const notion = [
   color: #909090;
   border-bottom: 1.5px solid #f4f6f8;
 }
+
 .msg-row:last-child {
   border-bottom: none;
 }
@@ -149,8 +159,9 @@ const notion = [
   flex-shrink: 0;
   letter-spacing: 1px;
 }
+
 .msg-label {
-  width: 210px;
+  width: 175px;
   min-width: 110px;
   font-weight: 400;
   color: #909090;
@@ -160,6 +171,7 @@ const notion = [
   flex-shrink: 0;
   font-size: 1.18rem;
 }
+
 .msg-message {
   flex: 1;
   color: #909090;
@@ -173,7 +185,7 @@ const notion = [
 .all-equipment {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px 28px;
+  gap: 0 12px;
   width: 96%;
   margin: 0 auto;
 }
@@ -185,32 +197,39 @@ const notion = [
     width: 100vw;
     padding: 0 0 18px 0;
   }
+
   .top {
     gap: 22px;
     margin-left: 12px;
     margin-top: 35px;
     margin-bottom: 16px;
   }
+
   .tab {
     font-size: 1.22rem;
     padding-bottom: 2px;
   }
+
   .title {
     font-size: 1.32rem;
     margin: 35px 0 13px 10px;
   }
+
   .msg-card {
     padding: 10px 0;
     border-radius: 13px;
   }
+
   .msg-row {
     padding: 11px 7px;
     font-size: 0.92rem;
   }
+
   .msg-label,
   .msg-message {
     font-size: 0.93rem;
   }
+
   .msg-time {
     width: 49px;
     font-size: 0.93rem;
