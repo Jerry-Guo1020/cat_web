@@ -9,7 +9,6 @@
                 </div>
                 <div class="username">{{ userInfo.username }}</div>
             </div>
-
             <!-- 功能卡片一行两列 -->
             <div class="function-row">
                 <Card title="会员商城" desc="享你所想" colorFrom="#ffd891" colorTo="#fff" :icon="heartIcon" />
