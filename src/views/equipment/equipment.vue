@@ -251,4 +251,10 @@ function goDetail(id, type) {
     font-size: 0.93rem;
   }
 }
+
+@media (max-width: 300px) {
+  .all-equipment {
+    grid-template-columns: 1fr; /* 小屏幕变成单列 */
+  }
+}
 </style>
