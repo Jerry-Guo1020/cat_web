@@ -2,7 +2,9 @@
     <div class="container">
         <div class="top">
             <div class="title">猫咪列表</div>
-            <div class="btn_add">添加按钮</div>
+            <div class="btn_add">
+                <img src="/assets/SVG/home/加.svg" class="addicon" />
+            </div>
         </div>
 
         <div class="cat-info">
@@ -12,11 +14,19 @@
             <div class="cat-info-content">
                 <div class="cat-name">{{ userInfo.catname }}</div>
                 <div class="user">{{ userInfo.username }}</div>
+                <div class="cat-old">
+                    <img :src="userInfo.calendar" class="calendar-logo" />
+                    <div class="date">{{ userInfo.catold }}</div>
+                    <div class="cat-status">{{ userInfo.catstatus }}</div>
+                </div>
             </div>
         </div>
 
         <div class="memo">
-            <div class="title">猫咪备忘录</div>
+            <div class="memo-top">
+                <div class="title">猫咪备忘录</div>
+                <div class="all-memo" @click="toAllMemo">全部备忘></div>
+            </div>
             <div class="meno-card">
                 <div v-for="(item, idx) in notion" :key="idx" class="msg-row">
                     <div class="msg-time">{{ item.time }}</div>
@@ -45,22 +55,25 @@ import Navbar from '../../components/Navbar/Navbar.vue';
 import { ref } from 'vue';
 
 const notion = [
-  {
-    time: "14:00",
-    label: "打疫苗",
-    message: "记得去医院"
-  },
-  {
-    time: "14:00",
-    label: "猫咪的水盆",
-    message: "喊猫咪去喝水哦."
-  }
+    {
+        time: "14:00",
+        label: "打疫苗",
+        message: "记得去医院"
+    },
+    {
+        time: "14:00",
+        label: "猫咪的水盆",
+        message: "喊猫咪去喝水哦."
+    }
 ]
 
 const userInfo = ref({
     username: '我爱我的猫咪',
-    catname:'fmajka',
-    avatar: '/assets/SVG/personal/avator.jpg'
+    catname: '猫咪小可爱',
+    avatar: '/assets/SVG/personal/avator.jpg',
+    catold: "4年3个月",
+    catstatus: "良好",
+    calendar: '/assets/SVG/home/日历.svg'
 })
 
 </script>
@@ -88,8 +101,27 @@ const userInfo = ref({
     font-size: 2.3rem;
     font-weight: bold;
     color: #111;
-    margin: 30px 0 35px 16px;
+    margin: 30px 0 35px 0;
     letter-spacing: 1px;
+}
+
+.all-memo {
+    font-size: 1.18rem;
+    color: #b1b6b9;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.18s;
+    user-select: none;
+    /* 右侧字更浅更细一点 */
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.all-memo:hover {
+    color: #888;
+    /* 悬停时更深一点 */
 }
 
 .avatar {
@@ -99,8 +131,6 @@ const userInfo = ref({
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
-
 
 }
 
@@ -109,13 +139,34 @@ const userInfo = ref({
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
+    margin-left: 25px;
 }
 
+.calendar-logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.date {
+    color: #969696;
+    margin-right: 5px;
+}
 
 .btn_add {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 45px 10px 0 10px;
+    width: 40px;
+    /* 固定按钮大小 */
+    height: 40px;
+    margin: 0;
+}
+
+.addicon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .cat-info {
@@ -131,9 +182,52 @@ const userInfo = ref({
     align-items: center;
 }
 
+.cat-info-content {
+    margin: 20px;
+}
+
+.cat-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #111;
+    /* margin: 30px 0 35px 16px; */
+    letter-spacing: 1px;
+}
+
+.user {
+    letter-spacing: 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.cat-old {
+    display: flex;
+    margin-top: 10px;
+}
+
+.cat-status {
+    background-color: #1fe6ec;
+    border-radius: 25px;
+    padding: 2px 10px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #000;
+    margin-right: 10px;
+}
+
 .memo {
     width: 100%;
+    margin-top: 8px;
 }
+
+.memo-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 6px;
+}
+
+
 
 .meno-card {
     background: #fff;
@@ -150,50 +244,50 @@ const userInfo = ref({
 }
 
 .msg-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 17px 46px;
-  font-size: 1.36rem;
-  color: #909090;
-  border-bottom: 1.5px solid #f4f6f8;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 17px 46px;
+    font-size: 1.36rem;
+    color: #909090;
+    border-bottom: 1.5px solid #f4f6f8;
 }
 
 .msg-row:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .msg-time {
-  width: 85px;
-  min-width: 70px;
-  text-align: left;
-  color: #969696;
-  font-weight: 400;
-  font-size: 1.28rem;
-  flex-shrink: 0;
-  letter-spacing: 1px;
+    width: 85px;
+    min-width: 70px;
+    text-align: left;
+    color: #969696;
+    font-weight: 400;
+    font-size: 1.28rem;
+    flex-shrink: 0;
+    letter-spacing: 1px;
 }
 
 .msg-label {
-  width: 175px;
-  min-width: 110px;
-  font-weight: 400;
-  color: #909090;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  flex-shrink: 0;
-  font-size: 1.18rem;
+    width: 175px;
+    min-width: 110px;
+    font-weight: 400;
+    color: #909090;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+    font-size: 1.18rem;
 }
 
 .msg-message {
-  flex: 1;
-  color: #909090;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
-  font-size: 1.18rem;
+    flex: 1;
+    color: #909090;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    font-size: 1.18rem;
 }
 
 .cat-daily {
@@ -229,26 +323,33 @@ const userInfo = ref({
         justify-content: flex-end;
     }
 
-     .msg-card {
-    padding: 10px 0;
-    border-radius: 13px;
-    
-  }
+    .msg-card {
+        padding: 10px 0;
+        border-radius: 13px;
 
-  .msg-row {
-    padding: 11px 7px;
-    font-size: 0.92rem;
-  }
+    }
 
-  .msg-label,
-  .msg-message {
-    font-size: 0.93rem;
-  }
+    .msg-row {
+        padding: 11px 7px;
+        font-size: 0.92rem;
+    }
 
-  .msg-time {
-    width: 49px;
-    font-size: 0.93rem;
-  }
+    .msg-label,
+    .msg-message {
+        font-size: 0.93rem;
+    }
+
+    .msg-time {
+        width: 49px;
+        font-size: 0.93rem;
+    }
+    .memo-title {
+        font-size: 1.25rem;
+    }
+
+    .all-memo {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 300px) {
