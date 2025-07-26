@@ -3,9 +3,10 @@ html, body {
   margin: 0;
   padding: 0;
   background: #f2fbfb;
+
 }
 #app {
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
   background: transparent;
 }
