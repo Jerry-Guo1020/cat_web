@@ -60,7 +60,7 @@ const notion = [
 const userInfo = ref({
     username: '我爱我的猫咪',
     catname:'fmajka',
-    avatar: '/src/public/assets/SVG/personal/avator.jpg'
+    avatar: '/public/assets/SVG/personal/avator.jpg'
 })
 
 </script>

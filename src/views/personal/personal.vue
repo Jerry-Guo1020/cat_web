@@ -73,44 +73,44 @@ const router = useRouter()
 
 const userInfo = ref({
     username: '我爱我的猫咪',
-    avatar: '/src/public/assets/SVG/personal/avator.jpg'
+    avatar: '/public/assets/SVG/personal/avator.jpg'
 })
 
 const functions = [
     {
         label: "我的订单",
         path: "/dingdan",
-        icon: "/src/public/assets/SVG/personal/订单.svg",
+        icon: "/public/assets/SVG/personal/订单.svg",
     },
     {
         label: "我的客服",
         path: "/kefu",
-        icon: "/src/public/assets/SVG/personal/客服.svg",
+        icon: "/public/assets/SVG/personal/客服.svg",
     },
     {
         label: "问题反馈",
         path: "/wenti",
-        icon: "/src/public/assets/SVG/personal/问题反馈.svg",
+        icon: "/public/assets/SVG/personal/问题反馈.svg",
     },
     {
         label: "会员商城",
         path: "/huiyuan",
-        icon: "/src/public/assets/SVG/personal/会员商城.svg",
+        icon: "/public/assets/SVG/personal/会员商城.svg",
     },
     {
         label: "在线问诊",
         path: "/wenzhen",
-        icon: "/src/public/assets/SVG/personal/在线问诊.svg",
+        icon: "/public/assets/SVG/personal/在线问诊.svg",
     },
     {
         label: "意见反馈",
         path: "/yijian",
-        icon: "/src/public/assets/SVG/personal/意见反馈.svg",
+        icon: "/public/assets/SVG/personal/意见反馈.svg",
     },
     {
         label: "售后服务",
         path: "/shouhou",
-        icon: "/src/public/assets/SVG/personal/售后服务.svg",
+        icon: "/public/assets/SVG/personal/售后服务.svg",
     },
 ]
 
@@ -118,12 +118,12 @@ const otherFunctions = [
     {
         label: "设备升级",
         path: "/dingdan",
-        icon: "/src/public/assets/SVG/personal/设备升级.svg",
+        icon: "/public/assets/SVG/personal/设备升级.svg",
     },
     {
         label: "设置",
         path: "/dingdan",
-        icon: "/src/public/assets/SVG/personal/设置.svg",
+        icon: "/public/assets/SVG/personal/设置.svg",
     },
 ]
 </script>
