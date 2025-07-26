@@ -23,32 +23,32 @@ const navs = [
   {
     label: "首页",
     path: "/",
-    icon: "/public/assets/SVG/Navbar/laptop.svg",
-    activeIcon: "/public/assets/SVG/Navbar/laptop (1).svg"
+    icon: "/assets/SVG/Navbar/laptop.svg",
+    activeIcon: "/assets/SVG/Navbar/laptop (1).svg"
   },
   {
     label: "设备",
     path: "/equipment",
-    icon: "/public/assets/SVG/Navbar/cat (1).svg",
-    activeIcon: "/public/assets/SVG/Navbar/cat.svg"
+    icon: "/assets/SVG/Navbar/cat (1).svg",
+    activeIcon: "/assets/SVG/Navbar/cat.svg"
   },
   {
     label: "商城",
     path: "/mall",
-    icon: "/public/assets/SVG/Navbar/shopping-cart.svg",
-    activeIcon: "/public/assets/SVG/Navbar/shopping-cart (1).svg"
+    icon: "/assets/SVG/Navbar/shopping-cart.svg",
+    activeIcon: "/assets/SVG/Navbar/shopping-cart (1).svg"
   },
   {
     label: "消息",
     path: "/message",
-    icon: "/public/assets/SVG/Navbar/message-circle-more (1).svg",
-    activeIcon: "/public/assets/SVG/Navbar/message-circle-more.svg"
+    icon: "/assets/SVG/Navbar/message-circle-more (1).svg",
+    activeIcon: "/assets/SVG/Navbar/message-circle-more.svg"
   },
   {
     label: "个人",
     path: "/personal",
-    icon: "/public/assets/SVG/Navbar/square-user-round.svg",
-    activeIcon: "/public/assets/SVG/Navbar/square-user-round (1).svg"
+    icon: "/assets/SVG/Navbar/square-user-round.svg",
+    activeIcon: "/assets/SVG/Navbar/square-user-round (1).svg"
   },
   
 ]
