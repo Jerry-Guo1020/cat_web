@@ -36,7 +36,7 @@
     </div>
     <!-- 底部操作按钮区 -->
     <div class="action-row">
-      <div v-for="(btn, i) in device.actions" :key="i" class="action-item" :class="{ active: btn.active }">
+      <div v-for="(btn, index) in device.actions" :key="index" class="action-item" :class="{ active: btn.active }">
         <div class="action-icon" :style="{ background: btn.active ? '#c8f8f8' : '#f5f5f5' }">{{ btn.icon }}</div>
         <div class="action-label">{{ btn.label }}</div>
       </div>
@@ -45,7 +45,7 @@
     <div class="record-card">
       <div class="record-title">今日记录</div>
       <div class="record-list">
-        <div class="record-row" v-for="(rec, i) in device.records" :key="i">
+        <div class="record-row" v-for="(rec, index) in device.records" :key="index">
           <div class="record-time">
             <span class="dot"></span>
             {{ rec.time }}
