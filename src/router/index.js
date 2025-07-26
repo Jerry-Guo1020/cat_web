@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import Home from "../views/home/home.vue";
 import Navbar from "../components/Navbar/Navbar.vue";
 import Mall from "../views/mall/mall.vue";
@@ -8,7 +8,7 @@ import Message from "../views/message/message.vue";
 import DeviceDetail from '../components/equipment/DeviceDetail.vue'
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes: [
     {
       path: "/",
