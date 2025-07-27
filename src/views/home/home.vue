@@ -81,11 +81,13 @@ const userInfo = ref({
 <style scoped>
 .container {
     width: 100%;
+    max-width: 960px;
     min-height: 100vh;
     background: #f5fefe;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin: 0 auto;
     padding-top: 0;
     padding-bottom: calc(104px + env(safe-area-inset-bottom, 24px));
 

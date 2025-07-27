@@ -342,6 +342,10 @@ const otherFunctions = [
         height: 38px;
         font-size: 1rem;
     }
+    .title {
+        font-size: 1.32rem;
+        margin: 35px 0 13px 10px;
+    }
 
 }
 </style>
