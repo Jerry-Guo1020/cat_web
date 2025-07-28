@@ -95,9 +95,7 @@ import { commodity } from '/src/data/commodity.js'
     display: flex;
     align-items: center;
     gap: 18px;
-    /* 图标间距 */
     margin-right: 8px;
-    /* 和右边有些距离 */
 }
 
 .icon-btn {
