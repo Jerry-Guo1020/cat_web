@@ -3,7 +3,7 @@
         <div class="top">
             <div class="title">猫咪列表</div>
             <div class="btn_add">
-                <img src="/assets/SVG/home/加.svg" class="addicon" />
+                <img src="/assets/SVG/home/加.svg" class="addicon" @click="toAddcat"/>
             </div>
         </div>
 
@@ -53,7 +53,9 @@
 import CatDailyCard from '../../components/home/catDailyCard.vue';
 import Navbar from '../../components/Navbar/Navbar.vue';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const notion = [
     {
         time: "14:00",
@@ -75,6 +77,10 @@ const userInfo = ref({
     catstatus: "良好",
     calendar: '/assets/SVG/home/日历.svg'
 })
+
+function toAddcat() {
+  router.push("/addcat")
+}
 
 </script>
 
@@ -160,7 +166,6 @@ const userInfo = ref({
     align-items: center;
     justify-content: center;
     width: 40px;
-    /* 固定按钮大小 */
     height: 40px;
     margin: 0;
 }

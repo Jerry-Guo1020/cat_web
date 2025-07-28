@@ -6,6 +6,9 @@ import Equipment from "../views/equipment/equipment.vue";
 import Personal from "../views/personal/personal.vue";
 import Message from "../views/message/message.vue";
 import DeviceDetail from '../components/equipment/DeviceDetail.vue'
+import AddCat from "../views/home/addCat.vue";
+import Login from "../views/auth/login.vue";
+import Register from "../views/auth/register.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -43,6 +46,21 @@ const router = createRouter({
     { path: "/device/:type/:id", 
       component: DeviceDetail 
     },
+    { path: "/addcat", 
+      component: AddCat,
+      name: "addcat"
+    },
+    {
+      path: "/login",
+      name:"login",
+      component: Login
+    },
+    {
+      path: "/register",
+      name:"register",
+      component: Register
+    },
+
   ],
   scrollBehavior(to, from, savedPosition) {
     return{ top: 0}
