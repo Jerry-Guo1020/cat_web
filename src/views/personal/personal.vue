@@ -25,34 +25,22 @@
                 <div class="function-details">
                     <div class="fun-title">常用功能</div>
                     <div class="details">
-                        <div 
-                        v-for="item in functions" 
-                        :key="item.path"
-                        :class="['functions', { active: route.push === item.push }]" 
-                        @click="go(item.path)">
-                            <img
-                            class="icon"
-                            :src="route.path === item.path ? item.activeIcon : item.icon"  
-                            />
+                        <div v-for="item in functions" :key="item.path"
+                            :class="['functions', { active: route.push === item.push }]" @click="go(item.path)">
+                            <img class="icon" :src="route.path === item.path ? item.activeIcon : item.icon" />
                             <span class="label">{{ item.label }}</span>
-                    </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="other-function">
                     <div class="fun-title">其他服务</div>
                     <div class="details">
-                        <div 
-                        v-for="item in otherFunctions" 
-                        :key="item.path"
-                        :class="['functions', { active: route.push === item.push }]" 
-                        @click="go(item.path)">
-                            <img
-                            class="icon"
-                            :src="route.path === item.path ? item.activeIcon : item.icon"  
-                            />
+                        <div v-for="item in otherFunctions" :key="item.path"
+                            :class="['functions', { active: route.push === item.push }]" @click="go(item.path)">
+                            <img class="icon" :src="route.path === item.path ? item.activeIcon : item.icon" />
                             <span class="label">{{ item.label }}</span>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -224,7 +212,8 @@ const otherFunctions = [
     color: #21e5b5;
     margin-right: 8px;
     letter-spacing: 1px;
-    white-space: nowrap;   /* 严禁跳行*/
+    white-space: nowrap;
+    /* 严禁跳行*/
 }
 
 .vip::after {
@@ -238,15 +227,16 @@ const otherFunctions = [
     height: 18px;
     background: #bbb;
     opacity: 1.7;
-    
+
 }
 
 .vip-content {
-    flex: 1 1 0 ;
+    flex: 1 1 0;
     color: #fff;
     font-weight: 500;
     font-size: 12px;
-    white-space: nowrap;   /* 严禁跳行*/
+    white-space: nowrap;
+    /* 严禁跳行*/
 }
 
 .plus-btn {
@@ -259,7 +249,8 @@ const otherFunctions = [
     box-shadow: 0 2px 4px #0001;
     cursor: pointer;
     transition: background 0.2s;
-    white-space: nowrap;   /* 严禁跳行*/
+    white-space: nowrap;
+    /* 严禁跳行*/
 }
 
 .plus-btn:hover {
@@ -303,13 +294,13 @@ const otherFunctions = [
 }
 
 .icon {
-  flex-shrink: 0;
-  width: 100%;
-  max-width: 32px;
-  min-width: 18px;
-  height: auto;
-  aspect-ratio: 1/1;
-  margin-bottom: 10px;
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 32px;
+    min-width: 18px;
+    height: auto;
+    aspect-ratio: 1/1;
+    margin-bottom: 10px;
 }
 
 .label {
@@ -342,6 +333,7 @@ const otherFunctions = [
         height: 38px;
         font-size: 1rem;
     }
+
     .title {
         font-size: 1.32rem;
         margin: 35px 0 13px 10px;
